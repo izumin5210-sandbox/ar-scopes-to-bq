@@ -153,6 +153,7 @@ GEM
     websocket-driver (0.7.1)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.4)
+    yard (0.9.24)
     zeitwerk (2.2.2)
 
 PLATFORMS
@@ -171,6 +172,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
   web-console (>= 3.3.0)
+  yard
 
 RUBY VERSION
    ruby 2.6.3p62
