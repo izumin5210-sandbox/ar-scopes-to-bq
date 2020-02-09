@@ -1,24 +1,31 @@
-# README
+``````
+:) % bin/rails r gen_scope_doc.rb 2> /dev/null
+## `User`
+### `only_deleted`
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+```sql
+SELECT `rdb.users`.* FROM `rdb.users` WHERE (users.`deleted` IS NULL OR users.`deleted` != false)
+```
 
-* Ruby version
+### `without_deleted`
 
-* System dependencies
 
-* Configuration
+```sql
+SELECT `rdb.users`.* FROM `rdb.users` WHERE `rdb.users`.`deleted` = false AND `rdb.users`.`deleted` = false
+```
 
-* Database creation
+### `with_deleted`
 
-* Database initialization
 
-* How to run the test suite
+```sql
+SELECT `rdb.users`.* FROM `rdb.users`
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+### `registered`
+Lists registered users.
 
-* Deployment instructions
-
-* ...
+```sql
+SELECT `rdb.users`.* FROM `rdb.users` WHERE `rdb.users`.`deleted` = false AND `rdb.users`.`registered` = true
+```
+``````
