@@ -1,7 +1,16 @@
 class User < ApplicationRecord
-  acts_as_paranoid column: :deleted, sentinel_value: false
-
   # @!group Scopes
+
+  # @!method only_deleted
+  #   @!scope class
+  #   @return [ActiveRecord::Relation]
+  # @!method without_deleted
+  #   @!scope class
+  #   @return [ActiveRecord::Relation]
+  # @!method with_deleted
+  #   @!scope class
+  #   @return [ActiveRecord::Relation]
+  acts_as_paranoid column: :deleted, sentinel_value: false
 
   # @!method registered
   #   Lists registered users.
