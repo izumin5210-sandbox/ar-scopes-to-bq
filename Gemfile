@@ -41,3 +41,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'paranoia'
 gem 'yard'
+gem 'pry-rails'
+gem 'pry-byebug'
