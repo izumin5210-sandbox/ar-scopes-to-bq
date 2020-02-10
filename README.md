@@ -1,6 +1,12 @@
 ``````
 :) % bin/rails r gen_scope_doc.rb 2> /dev/null
 ## `User`
+### default
+
+```sql
+SELECT `rdb.users`.* FROM `rdb.users` WHERE `rdb.users`.`deleted` = false
+```
+
 ### `only_deleted`
 
 
