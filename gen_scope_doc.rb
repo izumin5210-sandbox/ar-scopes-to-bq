@@ -13,14 +13,7 @@ module Quoting
     quote_identifier("rdb.#{name}")
   end
 
-  # alias quote_table_name quote_identifier
   alias quote_column_name quote_identifier
-  
-  def quote_table_name_for_assignment(table, attr)
-    p table, attr
-    super
-  end
-
 
   private
   def _type_cast(value)
@@ -91,11 +84,17 @@ ar_classes.each do |class_doc|
 
   ar_class.column_names
 
+  ActiveRecord::ConnectionAdapters::PostgreSQLAdapter.include Quoting
+
   puts "## `#{class_doc.name}`"
+  puts "### default"
+  puts
+  puts '```sql'
+  puts ar_class.all.to_sql
+  puts '```'
+  puts
 
   scope_docs.each do |scope_doc|
-    ActiveRecord::ConnectionAdapters::PostgreSQLAdapter.include Quoting
-
     puts "### `#{scope_doc.name}`"
     puts scope_doc.docstring if scope_doc.docstring.present?
     puts
